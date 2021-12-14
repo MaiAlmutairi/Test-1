@@ -1,0 +1,39 @@
+Microsoft Windows [Version 10.0.19042.1288]
+(c) Microsoft Corporation. All rights reserved.
+ 
+C:\Users\USER>cd C:\Users\USER\lightsail-containers-flask
+ 
+C:\Users\USER\lightsail-containers-flask>docker build -t flask-container .
+[+] Building 18.4s (11/11) FINISHED
+=> [internal] load build definition from Dockerfile                                                               0.3s
+=> => transferring dockerfile: 32B                                                                                0.0s
+=> [internal] load .dockerignore                                                                                  0.4s
+=> => transferring context: 2B                                                                                    0.0s
+=> [internal] load metadata for docker.io/library/python:3.8-alpine                                               3.9s
+=> [auth] library/python:pull token for registry-1.docker.io                                                      0.0s
+=> [internal] load build context                                                                                  0.2s
+=> => transferring context: 103B                                                                                  0.0s
+=> [1/5] FROM docker.io/library/python:3.8-alpine@sha256:e11bbd37d4371894e954421b85dbe8dd4eb7198d7cb4ed144ab529f  0.0s
+=> CACHED [2/5] WORKDIR /app                                                                                      0.0s
+=> [3/5] COPY requirements.txt .                                                                                  0.4s
+=> [4/5] RUN pip install -r requirements.txt                                                                     11.5s
+=> [5/5] COPY app.py .                                                                                            0.7s
+=> exporting to image                                                                                             0.9s
+=> => exporting layers                                                                                            0.8s
+=> => writing image sha256:b8f953c3efdf304b0417fbd71dc3aaf5d78aa09b2bdf287718249a85f9fbb16a                       0.0s
+=> => naming to docker.io/library/flask-container                                                                 0.0s
+ 
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+ 
+C:\Users\USER\lightsail-containers-flask>docker run -p 5000:5000 flask-container
+* Serving Flask app 'app' (lazy loading)
+* Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+* Debug mode: off
+* Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+* Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
+C:\Users\USER\lightsail-containers-flask>curl localhost:5000
+Hello, World!
+show me commit message!
